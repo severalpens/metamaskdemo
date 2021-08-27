@@ -1,5 +1,4 @@
-require('dotenv').config();
-const { ethers } = require("ethers");
+import { ethers } from "ethers";
 
 //Contract Details
 const artifact = require("./build/contracts/FungibleTokenContract.json");

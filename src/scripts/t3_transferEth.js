@@ -1,7 +1,8 @@
-require('dotenv').config();
-const { ethers } = require("ethers");
+import { ethers } from "ethers";
+
 const network = "rinkeby";
-const chalk = require("chalk")
+const chalk = require("chalk");
+
 const provider = new ethers.providers.InfuraProvider(network, {
   projectId: process.env.projectId,
   projectSecret: process.env.projectSecret

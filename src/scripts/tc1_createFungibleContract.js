@@ -1,12 +1,10 @@
-require('dotenv').config();
-const chalk = require("chalk");
-const { ethers } = require("ethers");
+import { ethers } from "ethers";
 
 //Contract details
-const artifact = require("./build/contracts/NonFungibleTokenContract.json");
+const artifact = require("./build/contracts/FungibleTokenContract.json");
 const network = "rinkeby";
-const owner = process.env.address;
-const contractConstructorArgs = [owner];
+const initialBalance = ethers.utils.parseEther("10000.0");
+const contractConstructorArgs = [initialBalance];
 
 //Instantiations
 const provider = new ethers.providers.InfuraProvider(network, {
@@ -23,10 +21,10 @@ const factory = new ethers.ContractFactory(artifact.abi, artifact.bytecode, wall
     const contract = await deployment.deployed();
 
     //You can now add the contract address to the .env file (ftAddress)
-    console.log(chalk.green(`Success! You can now update your .env file: nftAddress=${contract.address}`));
+    console.log(chalk.green(`Success! You can now update your .env file: ftAddress=${contract.address}`));
     
     //You can inspect the token transfer activity on Etherscan 
     console.log(chalk.blue(`https://rinkeby.etherscan.io/token/${contract.address}`));
-    
+
 })();
 
