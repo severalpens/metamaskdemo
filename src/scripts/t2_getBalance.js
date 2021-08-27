@@ -9,10 +9,8 @@ export const t2_getBalance = async () => {
   })
 
   const account1Balance = await provider.getBalance(accounts[0]);
-  console.log(`${account1Balance}`);
-  
+  console.log(`${account1Balance}`);  
 }
 
-// export default t2_getBalance;
 
 

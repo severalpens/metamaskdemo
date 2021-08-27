@@ -1,32 +1,24 @@
 import { ethers } from "ethers";
+import {chalk} from "chalk";
 
-const network = "rinkeby";
-const chalk = require("chalk");
+const provider = new ethers.providers.Web3Provider(window.ethereum);
+const signer = provider.getSigner();
+const account2 = "0xA0e2142EA0b15476bD059071625675B06aDA172c";
 
-const provider = new ethers.providers.InfuraProvider(network, {
-  projectId: process.env.projectId,
-  projectSecret: process.env.projectSecret
-});
+export const t3_transferEth = async function () {
 
-
-const wallet = new ethers.Wallet(process.env.privateKey, provider);
-
-//Transfer ether using IIFE function to enable async/await
-(async function () {
-
-  let tx = await wallet.sendTransaction({
-    to: process.env.address2,
-    value: ethers.utils.parseEther("1")
+  let tx = await signer.sendTransaction({
+    to: account2,
+    value: ethers.utils.parseEther("0.01")
   });
 
-  console.log(chalk.green("Transaction request successfully sent! See Etherscan for details:"));
-  console.log(chalk.blue(`https://rinkeby.etherscan.io/tx/${tx.hash}`));
-  console.log(chalk.yellow("Now just waiting for transaction to be completed.."));
+  console.log("Transaction request successfully sent! See Etherscan for details:");
+  console.log(`https://rinkeby.etherscan.io/tx/${tx.hash}`);
+  console.log("Now just waiting for transaction to be completed..");
   
   let completedTransaction = await tx.wait();
   delete(completedTransaction.logsBloom);
-  console.log(chalk.green("Transaction request successfully sent! Details:"));
+  console.log("Transaction request successfully sent! Details:");
  console.log(completedTransaction);
 
-})();
-
+}
