@@ -1,7 +1,9 @@
 # Ethers.js Demo Using Metamask and React.js
 
 ## Description
-This repo contains demo code for interacting with the Ethereum blockchain using the Ethers.js library.
+This repo contains demo code for interacting with the Ethereum blockchain using the Ethers.js library and Metamask browser plugin.
+
+Pull requests welcome.
 
 ## Assumed Knowledge:
 - react.js
@@ -19,7 +21,7 @@ This repo contains demo code for interacting with the Ethereum blockchain using 
   - Most of these requirements may already be installed already (eg git).
 
 ## Setup
-1. clone the repo: `git clone https://github.com/severalpens/ethersv5.git`
+1. clone the repo: `git clone https://github.com/severalpens/metamaskdemo.git`
 1. run `npm install` to install npm packages
 1. start the app: `npm start`
 1. visit http://localhost:3000 and open developer tools (f12) to see console.log outputs
