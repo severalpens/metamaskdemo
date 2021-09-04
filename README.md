@@ -1,5 +1,8 @@
 # Ethers.js Demo Using Metamask and React.js
 
+## STATUS
+Only t1_generateAccounts, t2_getBalance, t3_transferEth have been integrated. Pull requests always welcome :).
+
 ## Description
 This repo contains demo code for interacting with the Ethereum blockchain using the Ethers.js library and Metamask browser plugin.
 
