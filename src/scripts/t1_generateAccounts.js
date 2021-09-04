@@ -9,6 +9,8 @@ const t1_generateAccounts = () => {
     const rawAccount2 = ethers.Wallet.createRandom();
     const account2 = {address: rawAccount2.address, privateKey: rawAccount2.privateKey};
     console.log(account2);
+
+    return {account1, account2}
 }
 
 
