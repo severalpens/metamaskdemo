@@ -1,7 +1,10 @@
 import { ethers } from "ethers";
 
 const t1_generateAccounts = () => {
-    if(window.ethereum){
+        let hasMetamask = false;
+        // if(window.ethereum){
+        //         hasMetamask = true;
+        // }
         const rawAccount1 = ethers.Wallet.createRandom();
         const account1 = {address: rawAccount1.address, privateKey: rawAccount1.privateKey};
         console.log(account1);
@@ -11,10 +14,6 @@ const t1_generateAccounts = () => {
         console.log(account2);
     
         return {account1, account2}
-    }
-    else{
-        return {}
-    }
 }
 
 

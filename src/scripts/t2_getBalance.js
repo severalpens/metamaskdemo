@@ -1,7 +1,6 @@
 import { ethers } from "ethers";
 
 export const t2_getBalance = async () => {
-  if(window.ethereum){
     const provider = new ethers.providers.Web3Provider(window.ethereum)
   const accounts =  await window.ethereum.request({
     method: 'eth_requestAccounts'
@@ -11,10 +10,7 @@ export const t2_getBalance = async () => {
   return ethers.utils.formatEther(account1Balance) 
 
 }
-else{
-    return {}
-}
-}
+
 
 
 

@@ -1,8 +1,6 @@
 import { ethers } from "ethers";
 
 export const t3_transferEth = async function () {
-  if(window.ethereum){
-
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
     const account2 =   {
@@ -25,7 +23,4 @@ export const t3_transferEth = async function () {
   console.log(completedTransaction);
   return completedTransaction;
 }
-else{
-  return {result: "no metamask"}
-}
-}
+

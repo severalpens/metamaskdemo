@@ -13,6 +13,10 @@
   
 }
 
+.redalert{
+  color:red;
+}
+
 .tx{
   display:flex;
   flex-direction: row;

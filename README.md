@@ -1,50 +1,70 @@
-# Ethers.js Demo Using Metamask and React.js
+# Getting Started with Create React App
 
-## STATUS
-Only some of the demo modules from the console version have been integrated so far. I'll try and do the others soon. Pull requests always welcome :).
-- `t1_generateAccounts` - completed
-- `t2_getBalance` - completed
-- `t3_transferEth` - completed
-- `t4_createFT` - tbc
-- `t5_transferTokens` - tbc
-- `t6_createNFT` - tbc
-- `t7_transferNFT` - tbc
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Description
-This repo contains demo code for interacting with the Ethereum blockchain using the Ethers.js library and Metamask browser plugin.
+## Available Scripts
 
-Pull requests welcome.
+In the project directory, you can run:
 
-## Assumed Knowledge:
-- react.js
-- ethereum basics
-- metamask
-- asynchronous javascript
+### `npm start`
 
-## Setup Requirements
-- Metamask browser plugin
-- Node & NPM
-- VS Code (or similar)
-- Terminal window (VS Code inbuilt, powershell, gitbash)
-- Compiler requirements
-  - See https://docs.soliditylang.org/en/v0.7.4/installing-solidity.html for further details.
-  - Most of these requirements may already be installed already (eg git).
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## Setup
-1. clone the repo: `git clone https://github.com/severalpens/metamaskdemo.git`
-1. run `npm install` to install npm packages
-1. start the app: `npm start`
-1. visit http://localhost:3000 and open developer tools (f12) to see console.log outputs
-1. To compile contracts, run `npm i -g truffle` then `truffle compile`
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
+### `npm test`
 
-## Tasks/Demos:
-- `t1_generateAccounts`: Generate  new Ethereum Accounts
-- `t2_getBalance`: Get the balance of an Ethereum Account
-- `t3_transferEth`: Transfer Eth balance between two Ethereum Accounts
-- `t4_createFT`: Create a new contract using ERC20 spec (Fungible Token)
-- `t5_transferTokens`: Transfer tokens between accounts
-- `t6_createNFT`: Create a new contract using ERC720 spec (Non Fungible Token)
-- `t7_transferNFT`: Transfer an NFT between Ethereum Accounts
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+### `npm run build`
 
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

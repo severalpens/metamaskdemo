@@ -1,6 +1,5 @@
 import react from 'react';
 import './App.css';
-// import {t1_generateAccounts, t2_getBalance, t3_transferEth} from './scripts/scripts';
 import t1_generateAccounts from './scripts/t1_generateAccounts';
 import { t2_getBalance } from './scripts/t2_getBalance';
 import { t3_transferEth } from './scripts/t3_transferEth';
@@ -20,14 +19,14 @@ class App extends react.Component {
   async t1(e) {
     e.preventDefault();
     this.setState({ status: 'running t1_generateAccounts..' });
-    globalResults = window.ethereum ? await t1_generateAccounts(): {results: 'metamask not installed'};
+    globalResults = await t1_generateAccounts();
     this.setState({ status: 'completed t1_generateAccounts' });
   }
 
   async t2(e) {
     e.preventDefault();
     this.setState({ status: 'running t2_getBalance..' });
-    globalResults = window.ethereum ? await t2_getBalance(): {results: 'metamask not installed'};
+    globalResults = await t2_getBalance();
     this.setState({ status: 'completed t2_getBalance' });
   }
 
@@ -35,13 +34,11 @@ class App extends react.Component {
   async t3(e) {
     e.preventDefault();
     this.setState({ status: 'running t3_transferEth..' });
-    globalResults = window.ethereum ? await t3_transferEth(): {results: 'metamask not installed'};
+    globalResults = await t3_transferEth();
     this.setState({ status: 'completed t3_transferEth' });
   }
 
   render() {
-    if (typeof window.ethereum !== 'undefined') {
-
     return (
       <div className="App">
         <div className="header">
@@ -84,16 +81,6 @@ class App extends react.Component {
       </div>
     );
   }
-
-  else{
-    return (
-      <div>no metamask</div>
-    )
-  }
-
-  }
-
-
 }
 
 export default App;
