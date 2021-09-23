@@ -1,39 +1,20 @@
 import { ethers } from "ethers";
 
 //Contract details
-const artifact = require("./build/contracts/NonFungibleTokenContract.json");
-const network = "rinkeby";
+const artifact = require("../contracts/NonFungibleTokenContract.json");
 
+//Transfer details
+const contractAddress = localStorage.getItem('nft') || "0x029e773e07894e9A388756b07F46983D4049D3e5";
+let from = "";
+let to = "";
+let id = 2;
+let args = [from, to, id];
 
-//Instantiations
-const provider = new ethers.providers.InfuraProvider(network, {
-  projectId: process.env.projectId,
-  projectSecret: process.env.projectSecret
-});
-const wallet = new ethers.Wallet(process.env.privateKey, provider);
-const contract = new ethers.Contract(process.env.nftAddress, artifact.abi, wallet);
-
-//Transfer a token from wallet holder (account1) to account2
-(async function () {
-  
-  //Transfer details
-  let from = process.env.address;
-  let to = process.env.address2;
-  let id = 2;
-  let args = [from, to, id];
-
-  //Transfer token
+export const tc4_transferNFT = async function () {
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const signer = provider.getSigner();
+  const contract = new ethers.Contract(contractAddress, artifact.abi, signer );
   let transaction = await contract.transferFrom(...args);
   let result = await transaction.wait();
-
-  //You can now add the contract address to the .env file (ftAddress)
-  console.log(chalk.green(`Success! Visit etherscan for details:`));
-    
-  //You can inspect the transaction on Etherscan
-  console.log(chalk.blue(`https://rinkeby.etherscan.io/tx/${result.transactionHash}`));
-
-  //You can inspect the token transfer activity on Etherscan
-  console.log(chalk.blue(`https://rinkeby.etherscan.io/token/${contract.address}`));
-  
-})();
-
+  return result;
+}

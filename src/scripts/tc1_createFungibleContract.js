@@ -12,5 +12,6 @@ export const tc1_createFungibleContract = async function () {
   const factory = new ethers.ContractFactory(artifact.abi, artifact.bytecode, signer);
   const deployment = await factory.deploy(...contractConstructorArgs);
   const contract = await deployment.deployed();
-  return contract.address;
+  localStorage.setItem('ft', contract.address);
+  return contract.deployTransaction;
 }

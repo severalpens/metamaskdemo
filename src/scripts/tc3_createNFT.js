@@ -1,30 +1,19 @@
 import { ethers } from "ethers";
 
 //Contract details
-const artifact = require("./build/contracts/NonFungibleTokenContract.json");
-const network = "rinkeby";
-const owner = process.env.address;
-const contractConstructorArgs = [owner];
+const artifact = require("../contracts/NonFungibleTokenContract.json");
 
-//Instantiations
-const provider = new ethers.providers.InfuraProvider(network, {
-  projectId: process.env.projectId,
-  projectSecret: process.env.projectSecret
-});
-const wallet = new ethers.Wallet(process.env.privateKey, provider);
-const factory = new ethers.ContractFactory(artifact.abi, artifact.bytecode, wallet);
- 
 
-//Create a new contract
-  (async function () {
-    const deployment = await factory.deploy(...contractConstructorArgs);
-    const contract = await deployment.deployed();
+export const tc3_createNFT = async function () {
+  const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+  const account = accounts[0];
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const signer = provider.getSigner();
+  const factory = new ethers.ContractFactory(artifact.abi, artifact.bytecode, signer);
+  const deployment = await factory.deploy(account);
+  const contract = await deployment.deployed();
+  localStorage.setItem('nft', contract.address);
+  return contract.deployTransaction;
+}
 
-    //You can now add the contract address to the .env file (ftAddress)
-    console.log(chalk.green(`Success! You can now update your .env file: nftAddress=${contract.address}`));
-    
-    //You can inspect the token transfer activity on Etherscan 
-    console.log(chalk.blue(`https://rinkeby.etherscan.io/token/${contract.address}`));
-    
-})();
 

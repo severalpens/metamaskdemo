@@ -3,6 +3,11 @@
   flex-direction: row;
 }
 
+.label{
+  align-content: right;
+  margin-right: 50px;
+  text-align: right;
+}
 
 .header{
   display:flex;
@@ -19,8 +24,10 @@
 
 .tx{
   display:flex;
+  align-items: right;
   flex-direction: row;
   padding: 1rem;
+  margin-right: 100px;
 }
 
 button{

@@ -1,33 +1,23 @@
 import { ethers } from "ethers";
 
-//Contract Details
-const artifact = require("./build/contracts/FungibleTokenContract.json");
-const network = "rinkeby";
-
-//Instantiations
-const provider = new ethers.providers.InfuraProvider(network, {
-  projectId: process.env.projectId,
-  projectSecret: process.env.projectSecret
-});
-const wallet = new ethers.Wallet(process.env.privateKey, provider);
-const contract = new ethers.Contract(process.env.ftAddress, artifact.abi, wallet);
+//props
+const artifact = require("../contracts/FungibleTokenContract.json");
+const contractAddress = localStorage.getItem('ft') || "0x029e773e07894e9A388756b07F46983D4049D3e5";
+const recipient = "0x1d72D5c821a742d4BDdf0e206F5cd55164535686";
 const amount = ethers.utils.parseEther("1.0");
 
-//Transfer a token from wallet holder (account1) to account2
-  (async function () {
-    let recipient = process.env.address2;
-    let transaction = await contract.transfer(recipient,amount);
-    let result = await transaction.wait();
 
-    //You can inspect transaction on Etherscan
-    console.log(`https://rinkeby.etherscan.io/tx/${result.transactionHash}`);
+export const tc2_transferTokens = async function () {
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const signer = provider.getSigner();
+  const contract = new ethers.Contract(contractAddress, artifact.abi, signer );
+  let transaction = await contract.transfer(recipient,amount);
+  let result = await transaction.wait();
+  return result;
+}
 
-    //You can inspect the token transfer activity on Etherscan
-    console.log(`https://rinkeby.etherscan.io/token/${contract.address}`);
 
-    //You can also inpect token balances on a single account
-    console.log(`https://rinkeby.etherscan.io/token/${contract.address}?a=${recipient}`);
+
 
     
-})();
 
