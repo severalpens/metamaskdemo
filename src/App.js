@@ -3,6 +3,7 @@ import './App.css';
 import t1_generateAccounts from './scripts/t1_generateAccounts';
 import { t2_getBalance } from './scripts/t2_getBalance';
 import { t3_transferEth } from './scripts/t3_transferEth';
+import { tc1_createFungibleContract } from './scripts/tc1_createFungibleContract';
 
 
 let globalResults = { results: 'results' };
@@ -14,6 +15,7 @@ class App extends react.Component {
     this.t1 = this.t1.bind(this);
     this.t2 = this.t2.bind(this);
     this.t3 = this.t3.bind(this);
+    this.tc1 = this.tc1.bind(this);
   }
 
   async t1(e) {
@@ -36,6 +38,13 @@ class App extends react.Component {
     this.setState({ status: 'running t3_transferEth..' });
     globalResults = await t3_transferEth();
     this.setState({ status: 'completed t3_transferEth' });
+  }
+
+  async tc1(e) {
+    e.preventDefault();
+    this.setState({ status: 'running tc1_createFungibleContract..' });
+    globalResults = await tc1_createFungibleContract();
+    this.setState({ status: 'completed tc1_createFungibleContract' });
   }
 
   render() {
@@ -68,6 +77,10 @@ class App extends react.Component {
             <div className="tx">
               <div>t3_transferEth: </div>
               <button id="t3" onClick={this.t3}>Transfer Eth</button>
+            </div>
+            <div className="tx">
+              <div>tc1_createFungibleContract: </div>
+              <button id="tc1" onClick={this.tc1}>Create Fungible Token</button>
             </div>
           </div>
           <div className="section">
