@@ -1,15 +1,5 @@
 # Ethers.js Demo Using Metamask and React.js
 
-## STATUS
-Only some of the demo modules from the console version have been integrated so far. I'll try and do the others soon. Pull requests always welcome :).
-- `t1_generateAccounts` - completed
-- `t2_getBalance` - completed
-- `t3_transferEth` - completed
-- `tc1_createFungibleContract` - completed
-- `tc2_transferTokens` - tbc
-- `tc3_createNFT` - tbc
-- `tc4_transferNFT` - tbc
-
 ## Description
 This repo contains demo code for interacting with the Ethereum blockchain using the Ethers.js library and Metamask browser plugin.
 
