@@ -1,6 +1,5 @@
 # Ethers.js Demo Using Metamask and React.js
 
-## Description
 This repo contains demo code for interacting with the Ethereum blockchain using the Ethers.js library and Metamask browser plugin.
 
 Pull requests welcome.
